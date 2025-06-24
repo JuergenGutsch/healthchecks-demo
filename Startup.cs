@@ -46,7 +46,7 @@ namespace HealthCheck.MainApp
 
                             if (reply.RoundtripTime > 100)
                             {
-                                return HealthCheckResult.Degraded("Ping is dgraded");
+                                return HealthCheckResult.Degraded("Ping is degraded");
                             }
 
                             return HealthCheckResult.Healthy("Ping is healthy");
@@ -60,7 +60,7 @@ namespace HealthCheck.MainApp
                 .AddCheck<ExampleHealthCheck>("class based", null, new[] { "class" });
 
             services.AddHealthChecksUI()
-                    .AddInMemoryStorage();
+                .AddInMemoryStorage();
 
             services.AddControllersWithViews();
         }
